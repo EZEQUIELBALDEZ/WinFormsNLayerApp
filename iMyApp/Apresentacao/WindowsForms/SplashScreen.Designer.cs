@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             progressBar1 = new ProgressBar();
-            timer1 = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // progressBar1
             // 
-            progressBar1.Location = new Point(169, 235);
+            progressBar1.ForeColor = Color.DarkOrange;
+            progressBar1.Location = new Point(241, 383);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(263, 23);
+            progressBar1.Size = new Size(222, 23);
             progressBar1.TabIndex = 0;
+            progressBar1.Click += progressBar1_Click;
             // 
             // SplashScreen
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackgroundImage = Properties.Resources.fluent_custom_tint;
-            ClientSize = new Size(601, 401);
+            BackgroundImage = Properties.Resources._971;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(696, 466);
             Controls.Add(progressBar1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "SplashScreen";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SplashSreen";
-            Shown += SplashScreen_Shown;
+            Text = "SplashScreen";
             ResumeLayout(false);
         }
 
         #endregion
 
         private ProgressBar progressBar1;
-        private System.Windows.Forms.Timer timer1;
     }
 }

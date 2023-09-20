@@ -16,10 +16,10 @@ namespace WindowsForms
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
 
-
+                ApplicationConfiguration.Initialize();
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MDIPrincipal());
+                Application.Run(new MDIPrincial());
             }
             catch (Exception ex)
             {

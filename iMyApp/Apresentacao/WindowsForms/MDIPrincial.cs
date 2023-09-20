@@ -1,18 +1,22 @@
-﻿namespace WindowsForms
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WindowsForms
 {
-    public partial class MDIPrincipal : Form
+    public partial class MDIPrincial : Form
     {
         private int childFormNumber = 0;
 
-        public MDIPrincipal()
+        public MDIPrincial()
         {
             InitializeComponent();
-        }
-
-        private void MDIPrincipal_Shown(object sender, EventArgs e)
-        {
-            var loading = new SplashScreen();
-            loading.ShowDialog();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -99,12 +103,5 @@
                 childForm.Close();
             }
         }
-
-        private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-
     }
 }

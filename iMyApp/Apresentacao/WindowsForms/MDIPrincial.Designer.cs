@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms
 {
-    partial class MDIPrincipal
+    partial class MDIPrincial
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIPrincipal));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MDIPrincial));
             menuStrip = new MenuStrip();
             fileMenu = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
@@ -470,11 +470,9 @@
             statusStrip.Location = new Point(0, 501);
             statusStrip.Name = "statusStrip";
             statusStrip.Padding = new Padding(1, 0, 16, 0);
-            statusStrip.RenderMode = ToolStripRenderMode.Professional;
             statusStrip.Size = new Size(737, 22);
             statusStrip.TabIndex = 2;
             statusStrip.Text = "StatusStrip";
-            statusStrip.ItemClicked += statusStrip_ItemClicked;
             // 
             // toolStripStatusLabel
             // 
@@ -482,7 +480,7 @@
             toolStripStatusLabel.Size = new Size(39, 17);
             toolStripStatusLabel.Text = "Status";
             // 
-            // MDIPrincipal
+            // MDIPrincial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -493,10 +491,8 @@
             IsMdiContainer = true;
             MainMenuStrip = menuStrip;
             Margin = new Padding(4, 3, 4, 3);
-            Name = "MDIPrincipal";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "MDIParent1";
-            Shown += MDIPrincipal_Shown;
+            Name = "MDIPrincial";
+            Text = "MDIPrincial";
             menuStrip.ResumeLayout(false);
             menuStrip.PerformLayout();
             toolStrip.ResumeLayout(false);
