@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Security.Principal;
 using WindowsForms.Telas.Cargos;
 
 namespace WindowsForms
@@ -16,10 +17,10 @@ namespace WindowsForms
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
 
-                ApplicationConfiguration.Initialize();
+
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new MDIPrincial());
+                Application.Run(new MDIPrincipal());
             }
             catch (Exception ex)
             {
@@ -29,3 +30,5 @@ namespace WindowsForms
         }
     }
 }
+
+

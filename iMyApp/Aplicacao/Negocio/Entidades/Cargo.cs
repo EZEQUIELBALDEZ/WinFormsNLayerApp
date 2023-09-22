@@ -21,6 +21,8 @@ namespace Negocio.Entidades
 
             AlteradoPor = "Welton";
             AlteradoEm = DateTime.Now;
+
+ 
         }
     }
 }

@@ -26,10 +26,12 @@ namespace Negocio.Validators
         /// </summary>
         public static IEnumerable<ValidationResult> ValidarDataAnotattions(object obj)
         {
+
             var resultadoValidacao = new List<ValidationResult>();
             var contexto = new ValidationContext(obj, null, null);
-            Validator.TryValidateObject(obj, contexto, resultadoValidacao, true);
-            return resultadoValidacao;
+            Validator.TryValidateObject(obj, contexto, resultadoValidacao , true);
+            return resultadoValidacao ;
+
         }
 
     }

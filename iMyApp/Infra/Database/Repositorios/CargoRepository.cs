@@ -5,8 +5,26 @@ using System.Data.SqlClient;
 
 namespace Database.Repositorios
 {
+    /// <summary>
+    /// <c>CargoRepository</c> - Executa comandos SQL (CRUD) na tabela de [dbo].[Cargo]
+    /// <example>Exemplo:
+    ///     var cargoRepositorio = new CargoRepository();   
+    /// </example>
+    /// </summary>
     public class CargoRepository
     {
+        /// <summary>
+        /// Insere um novo registro na tabela Cargo
+        /// <example>Exemplo:
+        /// <code>
+        ///     var cargoRepositorio = new CargoRepository();
+        ///     var cargo = new Cargo("Nome","Status");
+        ///     var resultado = cargoRepositorio.Incluir(cargo);        
+        /// </code>
+        /// </example>
+        /// </summary>
+        /// <param name="cargo">Entidade->Cargo</param>
+        /// <returns>true ou false</returns>
         public bool Inserir(Cargo cargo)
         {
             try
@@ -43,7 +61,7 @@ namespace Database.Repositorios
 
             }
             catch (Exception ex)
-            {                
+            {
                 throw ex;
             }
         }
@@ -58,7 +76,7 @@ namespace Database.Repositorios
                 using (var connection = new SqlConnection(SqlServer.StrConexao()))
                 {
                     var cmd = new SqlCommand(sql, connection);
-                    cmd.Parameters.AddWithValue("@Nome", cargo.Nome);                                        
+                    cmd.Parameters.AddWithValue("@Nome", cargo.Nome);
 
                     var resposta = cmd.ExecuteNonQuery();
                     return resposta == 1;
@@ -106,7 +124,7 @@ namespace Database.Repositorios
                     using (var connection = new SqlConnection(SqlServer.StrConexao()))
                     {
                         var cmd = connection.CreateCommand();
-                        
+
                         cmd.CommandText = sql;
 
                         dataAdapter = new SqlDataAdapter(cmd.CommandText, connection);
@@ -124,6 +142,8 @@ namespace Database.Repositorios
                 throw ex;
             }
         }
+
+        
 
     }
 
