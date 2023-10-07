@@ -1,25 +1,21 @@
-﻿using Database.Repositorios;
-using Negocio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
+﻿using Negocio.Entidades;
+using Negocio.Repository;
 
 namespace WindowsForms.Telas.Cargos
 {
     public partial class CargoView : Form
     {
-        public CargoView()
+        private readonly ICargoRepository _cargoRepository;
+
+        public CargoView(ICargoRepository cargoRepository)
         {
             InitializeComponent();
+            _cargoRepository = cargoRepository; 
         }
 
+        /// <summary>
+        /// Exibe a GroupBox para cadastrar um cargo
+        /// </summary>  
         private void btnNovoCargo_Click(object sender, EventArgs e)
         {
             groupBoxCargo.Visible = !groupBoxCargo.Visible;
@@ -32,12 +28,9 @@ namespace WindowsForms.Telas.Cargos
 
             var novoCargo = new Cargo(nome, status);
 
+            var resultado = _cargoRepository.Incluir(novoCargo);
 
-            var cargoRepository = new CargoRepository();
-
-            var resultado = cargoRepository.Inserir(novoCargo);
-
-            gvCargos.DataSource = cargoRepository.ObterTodos();
+            gvCargos.DataSource = _cargoRepository.ObterTodos();
 
             if (resultado)
             {
@@ -52,8 +45,7 @@ namespace WindowsForms.Telas.Cargos
 
         private void CargoView_Load(object sender, EventArgs e)
         {
-            var cargoRepository = new CargoRepository();
-            var dataTable = cargoRepository.ObterTodos();
+            var dataTable = _cargoRepository.ObterTodos();
             gvCargos.DataSource = dataTable;
         }
 
@@ -61,7 +53,6 @@ namespace WindowsForms.Telas.Cargos
 
         private void gvCargos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var cargoRepository = new CargoRepository();
             DataGridViewRow row = gvCargos.Rows[e.RowIndex];
 
             if (gvCargos.Columns[e.ColumnIndex].Name == "Delete")
@@ -69,7 +60,7 @@ namespace WindowsForms.Telas.Cargos
                 if (MessageBox.Show("Deseja realmente deletar o registro?",
                     "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    var resultado = cargoRepository.Deletar(int.Parse(row.Cells[1].Value.ToString()));
+                    var resultado = _cargoRepository.Deletar(int.Parse(row.Cells[1].Value.ToString()));
                 };
                 return;
             }
@@ -77,7 +68,7 @@ namespace WindowsForms.Telas.Cargos
             if (e.RowIndex >= 0)
             {
                 groupBoxCargo.Show();
-               
+
                 txtCargo.Text = row.Cells[1].Value.ToString();
                 chkStatus.Checked = Convert.ToBoolean(row.Cells[2].Value.ToString());
             }
